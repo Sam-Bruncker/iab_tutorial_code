@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block content %}
+
+<div class="container">  
+    <div class="row mt-5 mb-3">  
+      <div class="col-md-12">  
+        <div class="mx-auto text-center">
+          <p class="display-4 mb-0">{{ destination.name }}</p>  
+          <p>Popular Destination</p>
+        </div>
+      </div>  
+    </div>  
+ 
+    <!-- Destination --> 
+    <div class="row">  
+      <div class="col-md-12">  
+        <div class="card my-3 showCard">  
+          <div class="card-body">  
+            <div class="media">  
+              <img class="img-fluid mr-3 descriptionImage" src="{{ destination.image }}">  
+              <div class="media-body showCardBody">  
+                <div class="row">
+                  <small class="font-weight-bold text-muted">Stay 2 nights</small>  
+                  <h5 class="mt-0">{{ destination.name }}</h5>  
+                  <p>{{ destination.description }}</p>
+                  <div class="float-right text-right">  
+                    <p class="mb-0">1 AUD equals</p>  
+                    <h2 id="exchange-rate">0.62 {{ destination.currency }}</h1>  
+                  </div> 
+                </div>
+                <div class="card-footer showCardFooter">
+                  <div class="row"> 
+                    <a href="#" class="btn transparentButton">Book Now</a>
+                  </div> 
+                </div> 
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </div>
+    <hr>
+    <!-- Comments -->  
+    <div class="row">  
+      <div class="col-md-12">  
+        <h2>Comments</h1>  
+      </div>  
+    </div>  
+ 
+    <div class="row border-bottom"> 
+      {{ render_form(form,"/destinations/{0}/comment".format(destination.id)) }}
+      
+      {% for comment in destination.comments %}
+      <div class="col-md-12">  
+        <b>{{ comment.user.name }} <span class="ml-2 text-muted">January 2024</span></b>
+        <p>{{ comment.text }}</p>  
+      </div> 
+      {% endfor %} 
+    </div>  
+  </div> 
+
+{% endblock %}

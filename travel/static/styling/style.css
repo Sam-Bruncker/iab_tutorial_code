@@ -1,0 +1,62 @@
+
+/* Card Styling */
+
+.indexCard {
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: all ease 0.5s;
+}
+
+.indexCard:hover {
+    box-shadow: 0px 0px 5px 0px grey;
+}
+
+.transparentButton {
+    color: black;
+    text-decoration: underline;
+    background-color: transparent;
+    border: 0px;
+    transition: all ease 0.5s;
+}
+
+.transparentButton:hover {
+    border: 0px;
+    background-color: transparent;
+    color: blue;
+    text-decoration: underline;
+}
+
+.underlineEffect {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    background-color: transparent;
+}
+
+.underlineEffect:focus {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 3px solid black;
+}
+
+.descriptionImage {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.showCard {
+    border: none;
+}
+
+.showCardBody {
+    border-top: 2px grey solid;
+    border-bottom: 2px grey solid;
+}
+
+.showCardFooter {
+    background-color: transparent;
+}

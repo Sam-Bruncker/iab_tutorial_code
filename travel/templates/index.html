@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block header %}
+      <!--Jumbotron-->
+      <div class="container">
+         <div class="row justify-content-center mt-5 pb-4">
+            <div class="col-md-8">
+               <div class="card shadow p-5 mb-5 bg-light">
+                  <h1 class="text-center mb-3">Discover Your Next Adventure</h1>
+
+                  <form class="form-inline d-flex flex-nowrap" action="{{url_for('main.search')}}" >
+                     <input type="text" name="search" class="form-control flex-grow-1 my-1 mr-sm-2 underlineEffect" id="SearchForm">
+                     <button type="submit" class="flex-shrink-1 btn my-1">
+                        <img src="..\static\image\magnifying-glass.png" alt="Search Icon">
+                     </button>
+                   </form>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+{% endblock %}
+
+{% block content %}   
+      <div class="container">
+         <div class="row mt-5 mb-5 justify-content-center">
+            <div class="col-md-10">
+               <div class="media border p-3 d-flex justify-content-start">
+                  <img class="align-self-center me-3" style="max-width:120px"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Earth_Western_Hemisphere_transparent_background.png/600px-Earth_Western_Hemisphere_transparent_background.png"
+                     alt="Planet Earth">
+                  <div class="align-self-center media-body">
+                     <h5 class="mt-0">Take Yourself Off the Beaten Path</h5>
+                     <p class="d-none d-sm-block">Wanderlust is the ultimate travel companion,
+                         designed to help you find the most incredible destinations around the globe.
+                          With our curated recommendations, you can easily explore hidden gems,
+                           off-the-beaten-path adventures, or popular tourist hotspots.
+                            Whether you're seeking a relaxing beach getaway, a thrilling cultural experience,
+                             or a once-in-a-lifetime adventure, Wanderlust has you covered.</p>
+                     <a href="#" class="btn btn-primary d-block transparentButton">Join Now</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="card-group">
+            {% for destination in destinations %}
+            <div class="card mx-3 indexCard">
+               <a href="{{ url_for('destination.show', id=destination.id) }}" class ="stretched-link"></a>
+               <img class="img-fluid"
+                  src="{{ destination.image }}" alt="destination picture">
+               <div class="card-body">
+                  <div class = "row mx-auto">
+                     <h5 class="card-title">{{ destination.name }}</h5>
+                     <p class="card-text">{{ destination.description }}</p>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+{% endblock %}
